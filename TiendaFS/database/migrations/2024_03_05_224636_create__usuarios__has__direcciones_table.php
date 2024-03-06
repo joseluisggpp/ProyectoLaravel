@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('direcciones_idDireccion');
 
             // Define las claves foráneas
-            $table->foreign('usuarios_idUsuario')->references('id')->on('usuarios')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('usuarios_idUsuario')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('direcciones_idDireccion')->references('id')->on('direcciones')->cascadeOnDelete()->cascadeOnUpdate();
 
             // Establece las dos claves foráneas como clave primaria compuesta

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('usuarios_idUsuario');
             $table->unsignedBigInteger('productos_idProducto');
-            $table->foreign('usuarios_idUsuario')->references('id')->on('usuarios')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('usuarios_idUsuario')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('productos_idProducto')->references('id')->on('productos')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('puntuacion');
             $table->text('comentario');
