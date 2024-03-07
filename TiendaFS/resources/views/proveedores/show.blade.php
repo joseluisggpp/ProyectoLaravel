@@ -17,40 +17,32 @@
             <div class="card-body">
 
                 <div class="row">
-                    <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>Nombre:</strong></label>
+                    <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>NombreProveedor:</strong></label>
                     <div class="col-md-6" style="line-height: 35px;">
-                        {{ $proveedores->nombre }}
+                        {{ $proveedores->nombreProveedor }}
                     </div>
                 </div>
 
                 <div class="row">
-                    <label for="apellidos" class="col-md-4 col-form-label text-md-end text-start"><strong>Apellidos:</strong></label>
+                    <label for="contacto" class="col-md-4 col-form-label text-md-end text-start"><strong>contacto:</strong></label>
                     <div class="col-md-6" style="line-height: 35px;">
-                        {{ $proveedores->apellidos }}
+                        {{ $proveedores->contacto }}
                     </div>
                 </div>
 
                 <div class="row">
-                    <label for="edad" class="col-md-4 col-form-label text-md-end text-start"><strong>Edad:</strong></label>
+                    <label for="direccion" class="col-md-4 col-form-label text-md-end text-start"><strong>direccion:</strong></label>
                     <div class="col-md-6" style="line-height: 35px;">
-                        {{ $proveedores->edad }}
+                        {{ $proveedores->direccion }}
                     </div>
                 </div>
 
                 <div class="row">
-                    <label for="nota" class="col-md-4 col-form-label text-md-end text-start"><strong>Nota:</strong></label>
+                    <label for="paginaWeb" class="col-md-4 col-form-label text-md-end text-start"><strong>paginaWeb:</strong></label>
                     <div class="col-md-6" style="line-height: 35px;">
-                        {{ $proveedores->nota }}
+                        {{ $proveedores->paginaWeb }}
                     </div>
                 </div>
-
-                <div class="row">
-                    <label for="descripcion" class="col-md-4 col-form-label text-md-end text-start"><strong>Descripcion:</strong></label>
-                    <div class="col-md-6" style="line-height: 35px;">
-                        {{ $proveedores->descripcion }}
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

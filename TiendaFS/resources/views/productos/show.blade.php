@@ -17,37 +17,37 @@
             <div class="card-body">
 
                 <div class="row">
-                    <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>Nombre:</strong></label>
+                    <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>tipoProducto:</strong></label>
                     <div class="col-md-6" style="line-height: 35px;">
-                        {{ $productos->nombre }}
+                        {{ $productos->tipoProducto }}
                     </div>
                 </div>
 
                 <div class="row">
-                    <label for="apellidos" class="col-md-4 col-form-label text-md-end text-start"><strong>Apellidos:</strong></label>
+                    <label for="proveedores_idProveedor" class="col-md-4 col-form-label text-md-end text-start"><strong>proveedores_idProveedor:</strong></label>
                     <div class="col-md-6" style="line-height: 35px;">
-                        {{ $productos->apellidos }}
+                        {{ $productos->proveedores_idProveedor }}
                     </div>
                 </div>
 
                 <div class="row">
-                    <label for="edad" class="col-md-4 col-form-label text-md-end text-start"><strong>Edad:</strong></label>
-                    <div class="col-md-6" style="line-height: 35px;">
-                        {{ $productos->edad }}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label for="nota" class="col-md-4 col-form-label text-md-end text-start"><strong>Nota:</strong></label>
-                    <div class="col-md-6" style="line-height: 35px;">
-                        {{ $productos->nota }}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label for="descripcion" class="col-md-4 col-form-label text-md-end text-start"><strong>Descripcion:</strong></label>
+                    <label for="descripcion" class="col-md-4 col-form-label text-md-end text-start"><strong>descripcion:</strong></label>
                     <div class="col-md-6" style="line-height: 35px;">
                         {{ $productos->descripcion }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label for="precio" class="col-md-4 col-form-label text-md-end text-start"><strong>precio:</strong></label>
+                    <div class="col-md-6" style="line-height: 35px;">
+                        {{ $productos->precio }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label for="stock" class="col-md-4 col-form-label text-md-end text-start"><strong>stock:</strong></label>
+                    <div class="col-md-6" style="line-height: 35px;">
+                        {{ $productos->stock }}
                     </div>
                 </div>
 

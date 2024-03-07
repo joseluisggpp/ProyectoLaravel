@@ -19,22 +19,20 @@
                     <thead>
                         <tr>
                             <th scope="col">id</th>
-                            <th scope="col">tipoproveedor</th>
-                            <th scope="col">idProveedor</th>
-                            <th scope="col">Descripcion</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Stock</th>
+                            <th scope="col">Nombre Proveedor</th>
+                            <th scope="col">Contacto</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Pagina Web</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($proveedores as $proveedor)
                         <tr>
                             <th scope="row">{{ $proveedor->id }}</th>
-                            <td>{{ $proveedor->tipoproveedor }}</td>
-                            <td>{{ $proveedor->proveedores_idProveedor }}</td>
-                            <td>{{ $proveedor->descripcion }}</td>
-                            <td>{{ $proveedor->precio }}</td>
-                            <td>{{ $proveedor->stock }}</td>
+                            <td>{{ $proveedor->nombreProveedor }}</td>
+                            <td>{{ $proveedor->contacto }}</td>
+                            <td>{{ $proveedor->direccion }}</td>
+                            <td>{{ $proveedor->paginaWeb }}</td>
                             <td>
                                 <form action="{{ route('proveedores.destroy', $proveedor->id) }}" method="post">
                                     @csrf
