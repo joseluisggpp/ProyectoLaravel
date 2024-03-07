@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Proveedores;
 use App\Models\Productos;
 
 class ProductosController extends Controller
@@ -14,7 +13,7 @@ class ProductosController extends Controller
     public function index()
     {
         //
-        $productos = Productos::all()->paginate(10);
+        $productos = Productos::all();
         return view('productos.index', compact('productos'));
     }
 
@@ -78,7 +77,6 @@ class ProductosController extends Controller
             'productos' => $productos
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      */

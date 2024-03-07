@@ -13,7 +13,7 @@ class ProveedoresController extends Controller
     public function index()
     {
         //
-        $proveedores = Proveedores::all()->paginate(10);
+        $proveedores = Proveedores::all();
         return view('proveedores.index', compact('proveedores'));
     }
 

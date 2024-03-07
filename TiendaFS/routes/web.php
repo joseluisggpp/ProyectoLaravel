@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\ProductosController;
-use app\Http\Controllers\ProveedoresController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ProveedoresController;
 
 
 /*
@@ -18,6 +18,3 @@ use app\Http\Controllers\ProveedoresController;
 
 Route::resource('productos', ProductosController::class);
 Route::resource('proveedores', ProveedoresController::class);
-
-Route::get('/productos', ProductosController::class . '@index')->name('productos.index');
-Route::get('/proveedores', ProveedoresController::class . '@index')->name('proveedores.index');
