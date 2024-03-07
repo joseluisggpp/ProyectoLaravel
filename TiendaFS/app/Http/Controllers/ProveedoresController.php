@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proveedores;
 use Illuminate\Http\Request;
 
 class ProveedoresController extends Controller
@@ -12,6 +13,8 @@ class ProveedoresController extends Controller
     public function index()
     {
         //
+        $proveedores = Proveedores::all()->paginate(10);
+        return view('proveedores.index', compact('proveedores'));
     }
 
     /**
@@ -20,6 +23,7 @@ class ProveedoresController extends Controller
     public function create()
     {
         //
+        return view('proveedores.create');
     }
 
     /**
@@ -28,6 +32,17 @@ class ProveedoresController extends Controller
     public function store(Request $request)
     {
         //
+        //Validamos los datos con la función validate de Laravel
+        $validatedData = $request->validate([
+            'nombreProveedor' => 'required|max:255',
+            'contacto' => 'required|string|max:255',
+            'direccion' => 'required|string|max:255',
+            'paginaWeb' => 'nullable|url|max:255',
+        ]);
+
+
+        Proveedores::create($validatedData);
+        return redirect('/proveedores')->route('proveedores.index')->withSuccess('Se ha creado un nuevo proveedor');
     }
 
     /**
@@ -36,6 +51,14 @@ class ProveedoresController extends Controller
     public function show(string $id)
     {
         //
+        //Cargamos el proveedor correspondiente
+
+        $proveedores = Proveedores::find($id);
+
+        //Lo mandamos a la vista
+        return view('proveedores.show', [
+            'proveedores' => $proveedores
+        ]);
     }
 
     /**
@@ -44,6 +67,13 @@ class ProveedoresController extends Controller
     public function edit(string $id)
     {
         //
+        //Cargamos el producto correspondiente
+
+        $proveedores = Proveedores::find($id);
+
+        return view('proveedores.edit', [
+            'proveedores' => $proveedores
+        ]);
     }
 
     /**
@@ -52,6 +82,15 @@ class ProveedoresController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        //Cargamos el producto correspondiente
+
+        $proveedores = Proveedores::find($id);
+
+        $proveedores->update($request->all());
+
+        //Retornamos a la pagina previa
+        return redirect()->back()
+            ->withSuccess('El proveedor ha sido modificado.');
     }
 
     /**
@@ -60,5 +99,14 @@ class ProveedoresController extends Controller
     public function destroy(string $id)
     {
         //
+        //Cargamos el producto correspondiente
+        $proveedores = Proveedores::find($id);
+
+        //Borramos el producto
+        $proveedores->delete();
+
+        //retornamos a la ruta indice
+        return redirect()->route('proveedores.index')
+            ->withSuccess('El proveedor se ha borrado correctamente.');
     }
 }

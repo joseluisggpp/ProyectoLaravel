@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Proveedores;
-use App\Models\Productos;
+use App\Models\Users;
 
-class ProductosController extends Controller
+use Illuminate\Http\Request;
+
+
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class ProductosController extends Controller
     public function index()
     {
         //
-        $productos = Productos::all()->paginate(10);
-        return view('productos.index', compact('productos'));
+        $users = Users::all()->paginate(10);
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ProductosController extends Controller
     public function create()
     {
         //
-        return view('productos.create');
+        return view('users.create');
     }
 
     /**
@@ -35,17 +36,14 @@ class ProductosController extends Controller
         //
         //Validamos los datos con la función validate de Laravel
         $validatedData = $request->validate([
-            'tipoProducto' => 'required|max:255',
-            'proveedores_idProveedor' => 'exists:proveedores,id',
-            'descripcion' => 'max:1000',
-            'precio' => 'numeric|min:0',
-            'stock' => 'integer|min:0',
+            'name' => 'required|string|max:255',,
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8', // Considera añadir 'confirmed' si estás haciendo una validación de contraseña con confirmación
 
-            // Otros campos...
         ]);
 
-        Productos::create($validatedData);
-        return redirect('/productos')->route('productos.index')->withSuccess('Se ha creado un nuevo producto');
+        Users::create($validatedData);
+        return redirect('/users')->route('users.index')->withSuccess('Se ha creado un nuevo usuario');
     }
 
     /**
@@ -54,13 +52,13 @@ class ProductosController extends Controller
     public function show(string $id)
     {
         //
-        //Cargamos el producto correspondiente
+        //Cargamos el proveedor correspondiente
 
-        $productos = Productos::find($id);
+        $users = Users::find($id);
 
         //Lo mandamos a la vista
-        return view('productos.show', [
-            'productos' => $productos
+        return view('users.show', [
+            'users' => $users
         ]);
     }
 
@@ -72,10 +70,10 @@ class ProductosController extends Controller
         //
         //Cargamos el producto correspondiente
 
-        $productos = Productos::find($id);
+        $users = Users::find($id);
 
-        return view('productos.edit', [
-            'productos' => $productos
+        return view('users.edit', [
+            'users' => $users
         ]);
     }
 
@@ -87,13 +85,13 @@ class ProductosController extends Controller
         //
         //Cargamos el producto correspondiente
 
-        $productos = Productos::find($id);
+        $users = Users::find($id);
 
-        $productos->update($request->all());
+        $users->update($request->all());
 
         //Retornamos a la pagina previa
         return redirect()->back()
-            ->withSuccess('El producto ha sido modificado.');
+            ->withSuccess('El usuario ha sido modificado.');
     }
 
     /**
@@ -103,13 +101,13 @@ class ProductosController extends Controller
     {
         //
         //Cargamos el producto correspondiente
-        $productos = Productos::find($id);
+        $users = Users::find($id);
 
         //Borramos el producto
-        $productos->delete();
+        $users->delete();
 
         //retornamos a la ruta indice
-        return redirect()->route('productos.index')
-            ->withSuccess('El producto se ha borrado correctamente.');
+        return redirect()->route('users.index')
+            ->withSuccess('El usuario se ha borrado correctamente.');
     }
 }
