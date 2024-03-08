@@ -43,6 +43,48 @@
                         {{ $proveedores->paginaWeb }}
                     </div>
                 </div>
+
+                <!--Aquí empieza la lista de productos asociados-->
+                <div class="row">
+
+                    @foreach($productosProveedores as $productos)
+                    <div class="row">
+                        <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>tipoProducto:</strong></label>
+                        <div class="col-md-6" style="line-height: 35px;">
+                            {{ $productos->tipoProducto }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>imagen:</strong></label>
+                        <div class="col-md-6" style="line-height: 35px;">
+                            {{ $productos->imagen }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="descripcion" class="col-md-4 col-form-label text-md-end text-start"><strong>descripcion:</strong></label>
+                        <div class="col-md-6" style="line-height: 35px;">
+                            {{ $productos->descripcion }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="precio" class="col-md-4 col-form-label text-md-end text-start"><strong>precio:</strong></label>
+                        <div class="col-md-6" style="line-height: 35px;">
+                            {{ $productos->precio }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="stock" class="col-md-4 col-form-label text-md-end text-start"><strong>stock:</strong></label>
+                        <div class="col-md-6" style="line-height: 35px;">
+                            {{ $productos->stock }}
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
             </div>
         </div>
     </div>

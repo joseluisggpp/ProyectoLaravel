@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proveedores;
+use App\Models\Productos;
 use Illuminate\Http\Request;
 
 class ProveedoresController extends Controller
@@ -52,13 +53,20 @@ class ProveedoresController extends Controller
     {
         //
         //Cargamos el proveedor correspondiente
-
+        $productosProveedores = [];
         $proveedores = Proveedores::find($id);
+        $productos = Productos::all();
+        for ($i = 0; $i < count($productos); $i++) {
+            if ($productos[$i]["proveedores_idProveedor"] == $id) {
+                $productosProveedores[] = $productos[$i];
+            }
+        }
 
         //Lo mandamos a la vista
-        return view('proveedores.show', [
-            'proveedores' => $proveedores
-        ]);
+        return view(
+            'proveedores.show',
+            compact('proveedores', 'productosProveedores')
+        );
     }
 
     /**

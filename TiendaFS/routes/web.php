@@ -1,8 +1,11 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ProveedoresController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LogoutController;
 
 
 /*
@@ -18,3 +21,8 @@ use App\Http\Controllers\ProveedoresController;
 
 Route::resource('productos', ProductosController::class);
 Route::resource('proveedores', ProveedoresController::class);
+
+Route::get('/register', [RegisterController::class, 'create']);
+Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/logout', [Logoutcontroller::class, 'destroy'])
+    ->middleware('auth');
