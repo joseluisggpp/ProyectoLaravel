@@ -85,9 +85,9 @@ class ProductosController extends Controller
         //
         //Cargamos el producto correspondiente
 
-        $productos = Productos::find($id);
+        $producto = Productos::find($id);
 
-        $productos->update($request->all());
+        $producto->update($request->all());
 
         //Retornamos a la pagina previa
         return redirect()->back()

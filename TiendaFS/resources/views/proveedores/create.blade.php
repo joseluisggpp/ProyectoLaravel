@@ -41,7 +41,7 @@
                     <div class="mb-3 row">
                         <label for="direccion" class="col-md-4 col-form-label text-md-end text-start">direccion</label>
                         <div class="col-md-6">
-                            <input type="number" class="form-control @error('direccion') is-invalid @enderror" id="direccion" name="direccion" value="{{ old('direccion') }}">
+                            <input type="text" class="form-control @error('direccion') is-invalid @enderror" id="direccion" name="direccion" value="{{ old('direccion') }}">
                             @if ($errors->has('direccion'))
                             <span class="text-danger">{{ $errors->first('direccion') }}</span>
                             @endif
@@ -51,7 +51,7 @@
                     <div class="mb-3 row">
                         <label for="paginaWeb" class="col-md-4 col-form-label text-md-end text-start">paginaWeb</label>
                         <div class="col-md-6">
-                            <input type="number" class="form-control @error('paginaWeb') is-invalid @enderror" id="paginaWeb" name="paginaWeb" value="{{ old('paginaWeb') }}">
+                            <input type="text" class="form-control @error('paginaWeb') is-invalid @enderror" id="paginaWeb" name="paginaWeb" value="{{ old('paginaWeb') }}">
                             @if ($errors->has('paginaWeb'))
                             <span class="text-danger">{{ $errors->first('paginaWeb') }}</span>
                             @endif
