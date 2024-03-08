@@ -18,7 +18,7 @@ class DireccionesFactory extends Factory
     {
         return [
             //
-            'calle' => fake()->streetAddress(),
+            'calle' => fake()->streetName(),
             'numero' => fake()->buildingNumber(),
             'ciudad' => fake()->city(),
             'codigoPostal' => fake()->postcode(),

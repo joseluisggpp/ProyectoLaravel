@@ -18,16 +18,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        \App\Models\Users::factory(1)->create();
-        \App\Models\Direcciones::factory(1)->create();
-        \App\Models\Proveedores::factory(1)->create();
-        \App\Models\Ofertas_Especiales::factory(1)->create();
-        \App\Models\Pedidos::factory(1)->create();
-        \App\Models\User_has_Direcciones::factory(1)->create();
-        \App\Models\Productos::factory(1)->create();
-        \App\Models\Resenas::factory(1)->create();
-        \App\Models\Tickets::factory(1)->create();
-        \App\Models\Detalles_Pedidos::factory(1)->create();
-        \App\Models\Productos_has_Ofertas_Especiales::factory(1)->create();
+        \App\Models\Users::factory(10)->create();
+        \App\Models\Direcciones::factory(10)->create();
+        \App\Models\Proveedores::factory(10)->create();
+        \App\Models\Ofertas_Especiales::factory(10)->create();
+        \App\Models\Pedidos::factory(10)->create();
+        \App\Models\User_has_Direcciones::factory(10)->create();
+        \App\Models\Productos::factory(10)->create();
+        \App\Models\Resenas::factory(10)->create();
+        \App\Models\Tickets::factory(10)->create();
+        \App\Models\Detalles_Pedidos::factory(10)->create();
+        \App\Models\Productos_has_Ofertas_Especiales::factory(10)->create();
     }
 }

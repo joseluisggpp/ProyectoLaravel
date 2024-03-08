@@ -18,7 +18,7 @@ class User_has_DireccionesFactory extends Factory
     {
         return [
             //
-            'usuarios_idUsuario' => \App\Models\User_has_Direcciones::factory(),
+            'usuarios_idUsuario' => \App\Models\Users::factory(),
             'direcciones_idDireccion' => \App\Models\Direcciones::factory(),
         ];
     }
