@@ -2,11 +2,11 @@
 
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ProveedoresController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LogoutController;
-
+use App\Http\Controllers\UsersController;
+use Illuminate\Foundation\Auth\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ use App\Http\Controllers\Auth\LogoutController;
 Route::resource('productos', ProductosController::class);
 Route::resource('proveedores', ProveedoresController::class);
 
-Route::get('/register', [RegisterController::class, 'create']);
-Route::post('/register', [RegisterController::class, 'store']);
-Route::post('/logout', [Logoutcontroller::class, 'destroy'])
-    ->middleware('auth');
+Route::view('/login', 'auth.login');
+Route::post('/login', [UsersController::class, 'authenticationLogin']);
+Route::get('/register', [UsersController::class, 'create']);
+Route::post('/register', [UsersController::class, 'store']);

@@ -9,6 +9,32 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    public function authenticationLogin(Request $request)
+    {
+        $datosLogeo = $request->validate([
+            'email' => ['required'],
+            'password' => ['required']
+        ]);
+
+        if (auth()->attempt($datosLogeo)) {
+            $request->session()->regenerate();
+            return redirect('/productos');
+        }
+        return back();
+    }
+    public function login(Request $request)
+    {
+        return view('login');
+    }
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return back();
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -25,7 +51,7 @@ class UsersController extends Controller
     public function create()
     {
         //
-        return view('users.create');
+        return view('auth.register');
     }
 
     /**
@@ -36,16 +62,13 @@ class UsersController extends Controller
         //
         //Validamos los datos con la función validate de Laravel
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',,
+            'name' => ['required|string|max:255'],
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8', // Considera añadir 'confirmed' si estás haciendo una validación de contraseña con confirmación
-
+            'password' => ['required|string|min:8'],
         ]);
-
         Users::create($validatedData);
-        return redirect('/users')->route('users.index')->withSuccess('Se ha creado un nuevo usuario');
+        return redirect('/login');
     }
-
     /**
      * Display the specified resource.
      */

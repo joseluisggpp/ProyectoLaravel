@@ -16,19 +16,19 @@
     @csrf
     <div>
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" value="{{ old('name') }} " autofocus>
+        <input type="text" id="name" name="name" autofocus>
     </div>
     <div>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="{{ old('email') }} ">
+        <input type="email" id="email" name="email">
     </div>
     <div>
         <label for="password">Password</label>
-        <input type="text" id="password" name="password" value="{{ old('password') }} ">
+        <input type="password" id="password" name="password">
     </div>
     <div>
         <label for="password_confirmation">Password Confirmation</label>
-        <input type="text" id="password_confirmation" name="password_confirmation" value="{{ old('name') }} ">
+        <input type="password" id="password_confirmation" name="password_confirmation">
     </div>
     <div>
         <button>Register</button>
