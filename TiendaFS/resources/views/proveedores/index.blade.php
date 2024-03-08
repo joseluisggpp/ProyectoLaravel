@@ -29,7 +29,8 @@
                         @foreach ($proveedores as $proveedor)
                         <tr>
                             <th scope="row">{{ $proveedor->id }}</th>
-                            <td>{{ $proveedor->nombreProveedor }}</td>
+
+                            <td><a href="{{ route('proveedores.show', $proveedor->id)}}">{{ $proveedor->nombreProveedor }}</a></td>
                             <td>{{ $proveedor->contacto }}</td>
                             <td>{{ $proveedor->direccion }}</td>
                             <td>{{ $proveedor->paginaWeb }}</td>
