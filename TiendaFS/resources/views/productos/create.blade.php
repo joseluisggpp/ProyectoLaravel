@@ -51,7 +51,7 @@
                     <div class="mb-3 row">
                         <label for="descripcion" class="col-md-4 col-form-label text-md-end text-start">descripcion</label>
                         <div class="col-md-6">
-                            <input type="number" class="form-control @error('descripcion') is-invalid @enderror" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
+                            <input type="text" class="form-control @error('descripcion') is-invalid @enderror" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
                             @if ($errors->has('descripcion'))
                             <span class="text-danger">{{ $errors->first('descripcion') }}</span>
                             @endif
@@ -71,7 +71,7 @@
                     <div class="mb-3 row">
                         <label for="stock" class="col-md-4 col-form-label text-md-end text-start">stock</label>
                         <div class="col-md-6">
-                            <textarea class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock">{{ old('stock') }}</textarea>
+                            <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" value="{{ old('stock') }}">
                             @if ($errors->has('stock'))
                             <span class="text-danger">{{ $errors->first('stock') }}</span>
                             @endif

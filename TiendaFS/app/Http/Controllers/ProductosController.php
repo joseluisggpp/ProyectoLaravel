@@ -45,7 +45,7 @@ class ProductosController extends Controller
         ]);
 
         Productos::create($validatedData);
-        return redirect('/productos')->route('productos.index')->withSuccess('Se ha creado un nuevo producto');
+        return redirect()->route('productos.index')->withSuccess('Se ha creado un nuevo producto');
     }
 
     /**
@@ -72,10 +72,10 @@ class ProductosController extends Controller
         //
         //Cargamos el producto correspondiente
 
-        $productos = Productos::find($id);
+        $producto = Productos::find($id);
 
         return view('productos.edit', [
-            'productos' => $productos
+            'productos' => $producto
         ]);
     }
     /**

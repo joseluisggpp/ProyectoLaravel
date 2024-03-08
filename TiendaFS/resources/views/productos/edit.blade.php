@@ -1,4 +1,4 @@
-@extends('.layouts')
+@extends('productos.layouts')
 
 @section('content')
 
@@ -21,15 +21,14 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('productos.update', $producto->id) }}" method="post">
+                <form action="{{ route('productos.update', $productos->id) }}" method="post">
                     @csrf
                     @method("PUT")
-
 
                     <div class="mb-3 row">
                         <label for="tipoProducto" class="col-md-4 col-form-label text-md-end text-start">tipoProducto</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control @error('tipoProducto') is-invalid @enderror" id="tipoProducto" name="tipoProducto" value="{{ $producto->tipoProducto }}">
+                            <input type="text" class="form-control @error('tipoProducto') is-invalid @enderror" id="tipoProducto" name="tipoProducto" value="{{ $productos->tipoProducto }}">
                             @if ($errors->has('tipoProducto'))
                             <span class="text-danger">{{ $errors->first('tipoProducto') }}</span>
                             @endif
@@ -39,7 +38,7 @@
                     <div class="mb-3 row">
                         <label for="imagen" class="col-md-4 col-form-label text-md-end text-start">imagen</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control @error('imageno') is-invalid @enderror" id="imagen" name="imagen" value="{{ $producto->imagen }}">
+                            <input type="text" class="form-control @error('imageno') is-invalid @enderror" id="imagen" name="imagen" value="{{ $productos->imagen }}">
                             @if ($errors->has('imagen'))
                             <span class="text-danger">{{ $errors->first('imagen') }}</span>
                             @endif
@@ -49,7 +48,7 @@
                     <div class="mb-3 row">
                         <label for="proveedores_idProveedor" class="col-md-4 col-form-label text-md-end text-start">proveedores_idProveedor</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control @error('proveedores_idProveedor') is-invalid @enderror" id="proveedores_idProveedor" name="proveedores_idProveedor" value="{{ $producto->proveedores_idProveedor }}">
+                            <input type="text" class="form-control @error('proveedores_idProveedor') is-invalid @enderror" id="proveedores_idProveedor" name="proveedores_idProveedor" value="{{ $productos->proveedores_idProveedor }}">
                             @if ($errors->has('proveedores_idProveedor'))
                             <span class="text-danger">{{ $errors->first('proveedores_idProveedor') }}</span>
                             @endif
@@ -59,7 +58,7 @@
                     <div class="mb-3 row">
                         <label for="descripcion" class="col-md-4 col-form-label text-md-end text-start">descripcion</label>
                         <div class="col-md-6">
-                            <input type="number" class="form-control @error('descripcion') is-invalid @enderror" id="descripcion" name="descripcion" value="{{ $producto->descripcion }}">
+                            <input type="text" class="form-control @error('descripcion') is-invalid @enderror" id="descripcion" name="descripcion" value="{{ $productos->descripcion }}">
                             @if ($errors->has('descripcion'))
                             <span class="text-danger">{{ $errors->first('descripcion') }}</span>
                             @endif
@@ -69,7 +68,7 @@
                     <div class="mb-3 row">
                         <label for="precio" class="col-md-4 col-form-label text-md-end text-start">precio</label>
                         <div class="col-md-6">
-                            <input type="number" class="form-control @error('precio') is-invalid @enderror" id="precio" name="precio" value="{{ $producto->precio }}">
+                            <input type="number" class="form-control @error('precio') is-invalid @enderror" id="precio" name="precio" value="{{ $productos->precio }}">
                             @if ($errors->has('precio'))
                             <span class="text-danger">{{ $errors->first('precio') }}</span>
                             @endif
@@ -79,7 +78,7 @@
                     <div class="mb-3 row">
                         <label for="stock" class="col-md-4 col-form-label text-md-end text-start">stock</label>
                         <div class="col-md-6">
-                            <textarea class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock">{{ $producto->stock }}</textarea>
+                            <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" value="{{ $productos->stock }}">
                             @if ($errors->has('stock'))
                             <span class="text-danger">{{ $errors->first('stock') }}</span>
                             @endif

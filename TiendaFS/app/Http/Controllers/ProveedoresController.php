@@ -42,7 +42,7 @@ class ProveedoresController extends Controller
 
 
         Proveedores::create($validatedData);
-        return redirect('/proveedores')->route('proveedores.index')->withSuccess('Se ha creado un nuevo proveedor');
+        return redirect()->route('proveedores.index')->withSuccess('Se ha creado un nuevo proveedor');
     }
 
     /**
