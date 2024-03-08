@@ -25,15 +25,20 @@ we need 17 single digit labels:
 each label cost $1, so the output should be 17. */
 function rocks(int $n)
 {
-    $digits = 0;
-    $i = 1;
+    $cost = 0; // Inicializamos el costo total a 0
 
-    while ($i <= $n) {
-        $digits += strlen((string)$i);
-        $i++;
+    for ($i = 1; $i <= $n; $i *= 10) {
+        // Calculamos la cantidad de números en el rango actual
+        $rangeCount = min($n - $i + 1, $i * 9);
+
+        // Calculamos la cantidad de dígitos en este rango
+        $digitCount = (int) log10($i) + 1;
+
+        // Sumamos el costo de los dígitos en este rango al costo total
+        $cost += $rangeCount * $digitCount;
     }
 
-    return $digits;
+    return $cost;
 }
 
 // Test the function
