@@ -21,6 +21,14 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+            // Obtén el usuario autenticado
+            $user = Auth::user();
+            // Verifica si es la primera vez que el usuario inicia sesión
+            if (!$user->is_verified) {
+                // Enviar correo electrónico con el código de verificación (implementar esta lógica)
+                // Redirige al usuario a la vista de verificación (puede ser manejada por UsersController)
+                return redirect()->route('auth.authentication');
+            }
             return redirect()->intended('dashboard');
         }
 

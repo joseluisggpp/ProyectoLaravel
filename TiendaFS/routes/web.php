@@ -22,6 +22,8 @@ use Illuminate\Foundation\Auth\User;
 Route::resource('productos', ProductosController::class);
 Route::resource('proveedores', ProveedoresController::class);
 
+Route::get('/auth/authentication', [UsersController::class, 'showVerificationForm'])->name('auth.authentication');
+
 Route::view('/login', 'auth.login');
 Route::post('/login', [UsersController::class, 'authenticationLogin']);
 Route::get('/register', [UsersController::class, 'create']);

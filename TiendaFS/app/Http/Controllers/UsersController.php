@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    public function showVerificationForm()
+    {
+        return view('auth.authentication');
+    }
     public function authenticationLogin(Request $request)
     {
         $datosLogeo = $request->validate([
@@ -62,9 +66,9 @@ class UsersController extends Controller
         //
         //Validamos los datos con la función validate de Laravel
         $validatedData = $request->validate([
-            'name' => ['required|string|max:255'],
+            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => ['required|string|min:8'],
+            'password' => 'required|string|min:8',
         ]);
         Users::create($validatedData);
         return redirect('/login');
