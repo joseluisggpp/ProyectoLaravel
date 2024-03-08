@@ -37,6 +37,16 @@
                     </div>
 
                     <div class="mb-3 row">
+                        <label for="imagen" class="col-md-4 col-form-label text-md-end text-start">imagen</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control @error('imageno') is-invalid @enderror" id="imagen" name="imagen" value="{{ $producto->imagen }}">
+                            @if ($errors->has('imagen'))
+                            <span class="text-danger">{{ $errors->first('imagen') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
                         <label for="proveedores_idProveedor" class="col-md-4 col-form-label text-md-end text-start">proveedores_idProveedor</label>
                         <div class="col-md-6">
                             <input type="text" class="form-control @error('proveedores_idProveedor') is-invalid @enderror" id="proveedores_idProveedor" name="proveedores_idProveedor" value="{{ $producto->proveedores_idProveedor }}">

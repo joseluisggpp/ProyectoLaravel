@@ -20,6 +20,7 @@
                         <tr>
                             <th scope="col">id</th>
                             <th scope="col">tipoProducto</th>
+                            <th scope="col">imagen</th>
                             <th scope="col">idProveedor</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Precio</th>
@@ -31,6 +32,7 @@
                         <tr>
                             <th scope="row">{{ $producto->id }}</th>
                             <td>{{ $producto->tipoProducto }}</td>
+                            <td>{{ $producto->imagen }}</td>
                             <td>{{ $producto->proveedores_idProveedor }}</td>
                             <td>{{ $producto->descripcion }}</td>
                             <td>{{ $producto->precio }}</td>

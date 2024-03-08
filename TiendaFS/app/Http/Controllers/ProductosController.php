@@ -35,6 +35,7 @@ class ProductosController extends Controller
         //Validamos los datos con la función validate de Laravel
         $validatedData = $request->validate([
             'tipoProducto' => 'required|max:255',
+            'imagen' => 'required|max:255',
             'proveedores_idProveedor' => 'exists:proveedores,id',
             'descripcion' => 'max:1000',
             'precio' => 'numeric|min:0',

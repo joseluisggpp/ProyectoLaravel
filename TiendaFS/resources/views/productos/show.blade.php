@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-start">
-                    Información del Alumno
+                    Información del Producto
                 </div>
                 <div class="float-end">
                     <a href="{{ route('productos.index') }}" class="btn btn-primary btn-sm">&larr; Atras</a>
@@ -20,6 +20,13 @@
                     <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>tipoProducto:</strong></label>
                     <div class="col-md-6" style="line-height: 35px;">
                         {{ $productos->tipoProducto }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>imagen:</strong></label>
+                    <div class="col-md-6" style="line-height: 35px;">
+                        {{ $productos->imagen }}
                     </div>
                 </div>
 

@@ -19,6 +19,7 @@ class ProductosFactory extends Factory
         return [
             //
             'tipoProducto' => fake()->words(1, true),
+            'imagen' => fake()->imageUrl(),
             'proveedores_idProveedor' => \App\Models\Proveedores::factory(),
             'descripcion' => fake()->sentence(),
             'precio' => fake()->numberBetween(1, 100000),
