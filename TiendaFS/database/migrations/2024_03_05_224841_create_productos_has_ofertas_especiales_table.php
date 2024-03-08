@@ -17,7 +17,7 @@ return new class extends Migration
 
             // Define las claves foráneas
             $table->foreign('productos_idProducto')->references('id')->on('productos')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign('ofertas_especiales_idOferta_Especial', 'fk_ofertas_especiales')->references('id')->on('ofertas_especiales')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('ofertas_especiales_idOferta_Especial', 'fk_ofertas_especiales')->references('id')->on('ofertas__especiales')->cascadeOnDelete()->cascadeOnUpdate();
             // Establece las dos claves foráneas como clave primaria compuesta
             $table->primary(['productos_idProducto', 'ofertas_especiales_idOferta_Especial']);
             $table->timestamps();
